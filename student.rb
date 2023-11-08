@@ -10,7 +10,7 @@ class Student < Person
   end
 
   # Method to set the classroom and add the student to it
-  def set_classroom(classroom)
+  def classroom=(classroom)
     @classroom = classroom
     add_to_classroom(classroom)
   end
@@ -20,6 +20,7 @@ class Student < Person
   # Helper method to add the student to a classroom
   def add_to_classroom(classroom)
     return unless classroom
+    
     classroom.students << self unless classroom.students.include?(self)
   end
 
