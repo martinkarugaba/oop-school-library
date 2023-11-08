@@ -4,12 +4,12 @@ class Classroom
 
   def initialize(label)
     @label = label
-    @students = []  # Initialize an empty array to store students
+    @students = [] # Initialize an empty array to store students
   end
 
   # Add a student to the classroom
   def add_student(student)
     @students << student
-    student.classroom = self  # Set the classroom for the student
+    student.classroom = self # Set the classroom for the student
   end
 end
