@@ -6,14 +6,9 @@ class Student < Person
     self.classroom = classroom
   end
 
-  # Method to set the classroom and add the student to it
   def classroom=(new_classroom)
-    # Remove the student from the old classroom (if any)
     @classroom&.students&.delete(self)
-
     @classroom = new_classroom
-
-    # Add the student to the new classroom (if not nil)
     new_classroom&.students&.push(self)
   end
 
