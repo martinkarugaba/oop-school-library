@@ -4,9 +4,9 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 
-books = []
-people = []
-rentals = []
+# books = []
+# people = []
+# rentals = []
 
 def list_all_books(books)
   puts 'List of Books:'
