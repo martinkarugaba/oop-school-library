@@ -28,10 +28,11 @@ def list_all_people
   end
 end
 
-
 def list_all_books
-  puts 'List of Books:'
-  $books.each { |book| puts "#{book.title} by #{book.author}" }
+  puts 'List of all books:'
+  $books.each do |book|
+    puts "Title: #{book.title}, Author: #{book.author}"
+  end
 end
 
 def list_all_rentals_for_given_id(rentals, person_id)
