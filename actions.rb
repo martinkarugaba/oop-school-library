@@ -32,18 +32,18 @@ def create_book_option
   title = gets.chomp
   puts 'Enter book author:'
   author = gets.chomp
-  create_book(title, author, $books)
+  create_book(title, author)
 end
 
 def list_all_books_option
   list_all_books($books)
 end
 
-def list_all_people_option
-  list_all_people($people)
-end
+# def list_all_people_option(people)
+#   list_all_people($people)
+# end
 
-def list_rentals_for_person_option_option
+def list_rentals_for_person_option
   puts 'Enter person ID:'
   person_id = gets.chomp.to_i
   list_rentals_for_person($rentals, person_id)

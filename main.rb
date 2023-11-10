@@ -18,7 +18,7 @@ def main
     when 2 then create_book_option
     when 3 then create_rental_option
     when 4 then list_all_books_option
-    when 5 then list_all_people(people)
+    when 5 then list_all_people
     when 6 then list_all_rentals_for_given_id
     when 7 then break
     else puts 'Invalid option. Please try again.'

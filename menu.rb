@@ -4,6 +4,7 @@ def welcome_message
 end
 
 def display_options
+  puts ''
   puts 'Please choose an option by entering a number:'
   puts '1. Create Person'
   puts '2. Create a book'
