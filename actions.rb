@@ -1,29 +1,30 @@
 require_relative 'library'
 require_relative 'app'
 
-def create_person(people)
-  puts 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]:'
-  gets.chomp.to_i
-end
+def create_person_option
+  print 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]: '
+  person_class = gets.chomp.to_i
 
-def create_student(people)
-  puts "Student's age:"
-  age = gets.chomp.to_i
-  puts "Student's name:"
-  name = gets.chomp
-  puts 'Does the student have parent permission? (Y/N):'
-  parent_permission = gets.chomp.downcase == 'y'
-  create_student_message(Student.new(id: $people.length + 1, age: age, name: name, parent_permission: parent_permission))
-end
-
-def create_teacher_option(people)
-  puts "Teacher's age:"
-  age = gets.chomp.to_i
-  puts "Teacher's name:"
-  name = gets.chomp
-  puts "Teacher's specialization:"
-  specialization = gets.chomp
-  create_teacher_message(Teacher.new(age: age, name: name, specialization: specialization))
+  case person_class
+  when 1
+    print "Enter Student's age: "
+    age = gets.chomp.to_i
+    print "Enter Student's name: "
+    name = gets.chomp
+    print 'Does the student have parent permission? (Y/N): '
+    parent_permission = gets.chomp.downcase == 'y'
+    create_person(age, name: name, parent_permission: parent_permission)
+  when 2
+    print "Teacher's age: "
+    age = gets.chomp.to_i
+    print "Teacher's name: "
+    name = gets.chomp
+    print "Teacher's specialization: "
+    specialization = gets.chomp
+    create_person(age, name: name, specialization: specialization)
+  else
+    puts 'Invalid choice. Please select option 1 or 2.'
+  end
 end
 
 def create_book_option

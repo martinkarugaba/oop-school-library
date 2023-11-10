@@ -5,26 +5,28 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 
+# def create_person(person_class, age, name, parent_permission: true)
+#   person = person_class.new(age, name, parent_permission: parent_permission)
+#   $people << person
+#   puts "Created a #{person_class} - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+# end
 
+def create_person(age, name:, parent_permission: true, specialization: nil)
+  if specialization.nil?
+    person = Student.new(age, name: name, parent_permission: parent_permission)
+  else
+    person = Teacher.new(age, name: name, specialization: specialization,)
+  end
+  $people << person
+  puts "Created a #{person.class} - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+end
 
 def list_all_people(people)
   puts 'List of People:'
-  #people.each { |person| puts "#{person.class} - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}" }
+  $people.each { |person| puts "#{person.class} - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}" }
 end
 
-def create_student(people, age, name, parent_permission: true)
-  student = Student.new(age, nil, parent_permission: parent_permission, name: name)
-  $people << student
-  puts "Student created successfully - Name: #{student.name}, Age: #{student.age}, ID: #{student.id}"
-end
-
-def create_teacher(people, age, name, specialization)
-  teacher = Teacher.new(age, specialization, parent_permission: true, name: name)
-  $people << teacher
-  puts "Teacher created successfully - Name: #{teacher.name}, Age: #{teacher.age}, ID: #{teacher.id}"
-end
-
-def create_book(title, author, books)
+def create_book(title, author)
   book = Book.new(title, author)
   $books << book
   puts "Book created successfully - Title: #{book.title}, Author: #{book.author}"
