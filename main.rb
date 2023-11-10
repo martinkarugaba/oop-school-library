@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require_relative 'library'
 require_relative 'app'
 require_relative 'menu'
 require_relative 'actions'
@@ -13,11 +14,12 @@ def main
     option = gets.chomp.to_i
 
     case option
-    when 1 then create_student
-    when 2 then create_teacher
-    when 4 then create_book
-    when 5 then create_rental
-    when 6 then list_rentals_for_person
+    when 1 then create_person(people)
+    when 2 then create_book_option
+    when 3 then create_rental
+    when 4 then list_all_books_option
+    when 5 then list_all_people(people)
+    when 6 then list_all_rentals_for_given_id
     when 7 then break
     else puts 'Invalid option. Please try again.'
     end
