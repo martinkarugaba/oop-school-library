@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'date'
 require_relative 'library'
 require_relative 'app'
 require_relative 'menu'

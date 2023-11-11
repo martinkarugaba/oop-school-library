@@ -1,3 +1,4 @@
+require 'date'
 require_relative 'library'
 require_relative 'app'
 
@@ -28,16 +29,34 @@ def create_person_option
 end
 
 def create_book_option
-  puts 'Enter book title:'
+  print 'Enter book title: '
   title = gets.chomp
-  puts 'Enter book author:'
+  print 'Enter book author: '
   author = gets.chomp
   create_book(title, author)
 end
 
-def list_all_books_option
-  list_all_books($books)
+def create_rental_option
+  puts ''
+  list_all_books
+  print 'Enter the number of the book to be rented: '
+  book_number = gets.chomp.to_i
+  selected_book = $books[book_number]
+
+  puts ''
+  list_all_people
+  print 'Enter the number of the person renting the book: '
+  person_number = gets.chomp.to_i
+  selected_person = $people[person_number]
+
+  puts ''
+  print 'Enter the rental date (MM/DD/YYYY): '
+  rental_date_input = gets.chomp
+  rental_date = Date.strptime(rental_date_input, '%m/%d/%Y')
+
+  create_rental(selected_book, selected_person, rental_date)
 end
+
 
 def list_rentals_for_person_option
   puts 'Enter person ID:'

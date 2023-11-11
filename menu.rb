@@ -1,6 +1,6 @@
 def welcome_message
-  puts 'Welcome to School Library App!'
   puts ''
+  puts 'Welcome to School Library App!'
 end
 
 def display_options
@@ -13,4 +13,5 @@ def display_options
   puts '5. List all people'
   puts '6. List rentals for a given person id'
   puts '7. Exit'
+  puts ''
 end

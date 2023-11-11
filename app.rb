@@ -21,19 +21,31 @@ def create_book(title, author)
   puts "Book created successfully - Title: #{book.title}, Author: #{book.author}"
 end
 
-def list_all_people
-  puts "List of all people:"
-  $people.each do |person|
-    puts "#{person.class} - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+def create_rental(book, person, rental_date)
+  rental = Rental.new(rental_date, person, book)
+  # book.rentals << rental
+  # person.rentals << rental
+  $rentals << rental
+  puts "Rental created successfully - Book: #{book.title}, Person: #{person.name}, Rental Date: #{rental_date}"
+end
+
+
+
+
+def list_all_books
+  puts 'List of Books:'
+  $books.each_with_index do |book, index|
+    puts "#{index}. Title: #{book.title}, Author: #{book.author}"
   end
 end
 
-def list_all_books
-  puts 'List of all books:'
-  $books.each do |book|
-    puts "Title: #{book.title}, Author: #{book.author}"
+def list_all_people
+  puts 'List of People:'
+  $people.each_with_index do |person, index|
+    puts "#{index}. Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
   end
 end
+
 
 def list_all_rentals_for_given_id(rentals, person_id)
   person_rentals = rentals.select { |rental| rental.person.id == person_id }
