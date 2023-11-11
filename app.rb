@@ -23,14 +23,11 @@ end
 
 def create_rental(book, person, rental_date)
   rental = Rental.new(rental_date, person, book)
-  # book.rentals << rental
-  # person.rentals << rental
+  book.rentals << rental
+  person.rentals << rental
   $rentals << rental
   puts "Rental created successfully - Book: #{book.title}, Person: #{person.name}, Rental Date: #{rental_date}"
 end
-
-
-
 
 def list_all_books
   puts 'List of Books:'
@@ -47,8 +44,13 @@ def list_all_people
 end
 
 
-def list_all_rentals_for_given_id(rentals, person_id)
+def list_rentals_for_person(rentals, person_id)
   person_rentals = rentals.select { |rental| rental.person.id == person_id }
-  puts "Rentals for Person ID #{person_id}:"
-  person_rentals.each { |rental| puts "Date: #{rental.date}, Book: #{rental.book.title}" }
+
+  if person_rentals.empty?
+    puts "No rentals found for Person ID #{person_id}."
+  else
+    puts "Rentals for Person ID #{person_id}:"
+    person_rentals.each { |rental| puts "Date: #{rental.date}, Book: #{rental.book.title}" }
+  end
 end
