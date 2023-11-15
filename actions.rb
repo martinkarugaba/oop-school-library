@@ -69,7 +69,6 @@ def list_all_people_option(library)
   library.list_all_people
 end
 
-
 def list_rentals_for_given_person_id_option(library)
   puts 'Enter person ID:'
   person_id = gets.chomp.to_i
