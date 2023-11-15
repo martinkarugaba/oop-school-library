@@ -1,8 +1,14 @@
 # library.rb
-require_relative 'book'
-require_relative 'person'
-require_relative 'rental'
+# require_relative 'book'
+# require_relative 'person'
+# require_relative 'rental'
 
-$books = []
-$people = []
-$rentals = []
+# class Library
+#   attr_accessor :books, :people, :rentals
+
+#   def initialize
+#     @books = []
+#     @people = []
+#     @rentals = []
+#   end
+# end
