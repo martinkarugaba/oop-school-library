@@ -1,5 +1,3 @@
-# main.rb
-
 require_relative 'menu'
 require_relative 'actions'
 require_relative 'library'

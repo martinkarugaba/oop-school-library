@@ -19,13 +19,13 @@ class Library
              else
                Teacher.new(age, specialization, parent_permission: parent_permission, name: name)
              end
-    self.people << person  # Use self.people instead of @people
+    people << person # Use self.people instead of @people
     puts "#{person.class} created successfully - Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
   end
 
   def create_book(title, author)
     book = Book.new(title, author)
-    self.books << book  # Use self.books instead of @books
+    books << book # Use self.books instead of @books
     puts "Book created successfully - Title: #{book.title}, Author: #{book.author}"
   end
 
@@ -34,7 +34,7 @@ class Library
       rental = Rental.new(rental_date, person, book)
       book.rentals << rental
       person.rentals << rental
-      self.rentals << rental  # Use self.rentals instead of @rentals
+      rentals << rental # Use self.rentals instead of @rentals
       puts "Rental created successfully - Book: #{book.title}, Person: #{person.name}, Rental Date: #{rental_date}"
     else
       puts 'Invalid book or person.'
@@ -43,21 +43,23 @@ class Library
 
   def list_all_books
     puts 'List of Books:'
-    self.books.each_with_index do |book, index|  # Use self.books instead of @books
+    books.each_with_index do |book, index| # Use self.books instead of @books
       puts "#{index}. Title: #{book.title}, Author: #{book.author}"
     end
   end
 
   def list_all_people
     puts 'List of People:'
-    self.people.each_with_index do |person, index|  # Use self.people instead of @people
+    people.each_with_index do |person, index| # Use self.people instead of @people
       puts "#{index}. Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
     end
   end
 
   def list_rentals_for_given_person_id(person_id)
-    person_rentals = self.rentals.select { |rental| rental.person.id == person_id }  # Use self.rentals instead of @rentals
-
+    person_rentals = # Use self.rentals instead of @rentals
+      rentals.select do |rental|
+        rental.person.id == person_id
+      end
     if person_rentals.empty?
       puts "No rentals found for Person ID #{person_id}."
     else
