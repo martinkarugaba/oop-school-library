@@ -1,31 +1,35 @@
-#!/usr/bin/env ruby
+# main.rb
 
 require_relative 'menu'
 require_relative 'actions'
+require_relative 'library'
 
-def main(people, books, rentals)
+library = Library.new
+
+def main(library)
   welcome_message
+
+  options = {
+    1 => :create_person_option,
+    2 => :create_book_option,
+    3 => :create_rental_option,
+    4 => :list_all_books_option,
+    5 => :list_all_people_option,
+    6 => :list_rentals_for_given_person_id_option,
+    7 => :exit_program_option
+  }
 
   loop do
     display_options
 
     option = gets.chomp.to_i
 
-    case option
-    when 1 then create_person_option(people)
-    when 2 then create_book_option(books)
-    when 3 then create_rental_option(books, people, rentals)
-    when 4 then list_all_books(books)
-    when 5 then list_all_people(people)
-    when 6 then list_rentals_for_given_person_id_option(rentals)
-    when 7 then break
-    else puts 'Invalid option. Please try again.'
+    if options.key?(option)
+      send(options[option], library)
+    else
+      puts 'Invalid option. Please try again.'
     end
   end
 end
 
-books = []
-people = []
-rentals = []
-
-main(people, books, rentals)
+main(library)
